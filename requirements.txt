@@ -7,4 +7,3 @@ scipy
 numpy
 pyjnius
 nltk
-tweetokenize==1.0.1
