@@ -115,7 +115,7 @@ class TestNRCAffectIntensityFeaturizer(TestCase):
 class TestNRCExpandedEmotionFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = NRCExpandedEmotionFeaturizer()
-        got = featurizer.featurize('!', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('!', Tokenizer())
         expected = [0.0329545883908009, 0.10252551320880843, 0.0396174509579299, 0.02163596069596282,
                     0.18454179292881, 0.07689066037386351, 0.3002052242222958, 0.005777398957777484,
                     0.042446558283882, 0.03611382219459458]
@@ -130,7 +130,7 @@ class TestNRCExpandedEmotionFeaturizer(TestCase):
 class TestNRCHashtagEmotionFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = NRCHashtagEmotionFeaturizer()
-        got = featurizer.featurize('#badass', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('#badass', Tokenizer())
         expected = [0.00852973401896, 0.0, 0.0, 0.376417244806, 0.0, 0.0, 0.0, 0.0, 0.826006600008, 0.0]
 
         self.assertListEqual(
@@ -143,7 +143,7 @@ class TestNRCHashtagEmotionFeaturizer(TestCase):
 class TestSentiStrengthFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = SentiStrengthFeaturizer()
-        got = featurizer.featurize('good day', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('good day', Tokenizer())
         expected = [2, -1]
 
         self.assertListEqual(
@@ -156,7 +156,7 @@ class TestSentiStrengthFeaturizer(TestCase):
 class TestSentiWordNetFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = SentiWordNetFeaturizer()
-        got = featurizer.featurize('awesome', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('awesome', Tokenizer())
         expected = [0.875 - 0.125, 0.0]
 
         self.assertListEqual(
@@ -169,7 +169,7 @@ class TestSentiWordNetFeaturizer(TestCase):
 class TestNegationFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = NegationFeaturizer()
-        got = featurizer.featurize('i don\'t like it', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('i don\'t like it', Tokenizer())
         expected = [1]
 
         self.assertListEqual(
@@ -182,14 +182,14 @@ class TestNegationFeaturizer(TestCase):
 class TestEdinburghEmbeddingFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = EdinburghEmbeddingsFeaturizer()
-        got = featurizer.featurize('i don\'t like it', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('i don\'t like it', Tokenizer())
         self.assertTrue(len(got) == 100)
 
 
 class TestEmojiEmbeddingFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = EmojiEmbeddingsFeaturizer()
-        got = featurizer.featurize('😂', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('😂', Tokenizer())
         self.assertTrue(len(got) == 300)
 
 
@@ -219,14 +219,14 @@ class TestTrie(TestCase):
 class TestLIWCFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = LIWCFeaturizer()
-        got = featurizer.featurize('', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('', Tokenizer())
         self.assertEqual(len(got), 80)
 
 
 class TestEmojiSentimentRanking(TestCase):
     def test_featurizer(self):
         featurizer = EmojiSentimentRanking()
-        got = featurizer.featurize('😂', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('😂', Tokenizer())
         expected = [0.24716181096977158, 0.46813021474490496, 0.28470797428532346]
         self.assertListEqual(
             expected,
