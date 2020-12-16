@@ -1,7 +1,7 @@
 # coding=utf-8
 from unittest import TestCase
 
-from tweetokenize.tokenizer import Tokenizer
+from nltk.tokenize import TweetTokenizer as Tokenizer
 
 from emoint.featurizers.afinn_valence_featurizer import AFINNValenceFeaturizer
 from emoint.featurizers.bing_liu_sentiment_featurizer import BingLiuFeaturizer
