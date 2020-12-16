@@ -24,7 +24,7 @@ from emoint.featurizers.sentistrength import SentiStrengthFeaturizer
 class TestMPQAEffectFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = MPQAEffectFeaturizer()
-        got = featurizer.featurize('abandoned', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('abandoned', Tokenizer())
         expected = [0, 1]
 
         self.assertListEqual(
@@ -37,7 +37,7 @@ class TestMPQAEffectFeaturizer(TestCase):
 class TestBingLiuFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = BingLiuFeaturizer()
-        got = featurizer.featurize('good', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('good', Tokenizer())
         expected = [1, 0]
 
         self.assertListEqual(
@@ -50,7 +50,7 @@ class TestBingLiuFeaturizer(TestCase):
 class TestAFINNValenceFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = AFINNValenceFeaturizer()
-        got = featurizer.featurize('can\'t stand :)', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('can\'t stand :)', Tokenizer())
         expected = [2, -3]
 
         self.assertListEqual(
@@ -63,7 +63,7 @@ class TestAFINNValenceFeaturizer(TestCase):
 class TestSentiment140LexiconFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = Sentiment140Featurizer()
-        got = featurizer.featurize('bad sunday', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('bad sunday', Tokenizer())
         expected = [0.267, -1.297 + -4.999]
 
         self.assertListEqual(
@@ -76,7 +76,7 @@ class TestSentiment140LexiconFeaturizer(TestCase):
 class TestNRCHashtagSentimentFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = NRCHashtagSentimentFeaturizer()
-        got = featurizer.featurize('bad day', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('bad day', Tokenizer())
         expected = [0.831 + 0.395, -0.751]
 
         self.assertListEqual(
@@ -89,7 +89,7 @@ class TestNRCHashtagSentimentFeaturizer(TestCase):
 class TestNRCEmotionFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = NRCEmotionFeaturizer()
-        got = featurizer.featurize('bad', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('bad', Tokenizer())
         expected = [1, 0, 1, 1, 0, 1, 0, 1, 0, 0]
 
         self.assertListEqual(
@@ -102,7 +102,7 @@ class TestNRCEmotionFeaturizer(TestCase):
 class TestNRCAffectIntensityFeaturizer(TestCase):
     def test_featurizer(self):
         featurizer = NRCAffectIntensityFeaturizer()
-        got = featurizer.featurize('bad', Tokenizer(allcapskeep=False))
+        got = featurizer.featurize('bad', Tokenizer())
         expected = [0.453, 0.0, 0.0, 0.375, 0.0, 0.0, 0.0, 0.422, 0.0, 0.0]
 
         self.assertListEqual(
